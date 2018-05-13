@@ -16,6 +16,10 @@ namespace Lannister.Controllers
 
         }
         
+        /// <summary>
+        /// Authenticate user if email and password are specified
+        /// </summary>
+        /// <returns></returns>
         [HttpPost]
         [SwaggerResponse(200, Type = typeof(object))]
         [SwaggerResponse(400, Type = typeof(object))]
@@ -25,6 +29,10 @@ namespace Lannister.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Authenticate user if selected registration type is via Facebook
+        /// </summary>
+        /// <returns></returns>
         [HttpPost]
         [Route("facebook")]
         [SwaggerResponse(200, Type = typeof(object))]
@@ -35,6 +43,10 @@ namespace Lannister.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Authenticate user if selected registration type is via Google
+        /// </summary>
+        /// <returns></returns>
         [HttpPost]
         [Route("google")]
         [SwaggerResponse(200, Type = typeof(object))]

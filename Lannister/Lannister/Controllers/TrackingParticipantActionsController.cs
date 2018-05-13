@@ -19,6 +19,11 @@ namespace Lannister.Controllers
 
         }
 
+        /// <summary>
+        /// Block tracking to not get notifications from it
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("{id}/block")]
         [SwaggerResponse(200, Type = typeof(object))]
@@ -29,6 +34,11 @@ namespace Lannister.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Unblock tracking to get notifications from it
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("{id}/unblock")]
         [SwaggerResponse(200, Type = typeof(object))]

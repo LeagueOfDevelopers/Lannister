@@ -16,6 +16,10 @@ namespace Lannister.Controllers
 
         }
 
+        /// <summary>
+        /// Authorize user with credentials: email and password are required
+        /// </summary>
+        /// <returns></returns>
         [HttpPost]
         [SwaggerResponse(200, Type = typeof(object))]
         [SwaggerResponse(400, Type = typeof(object))]
@@ -25,6 +29,10 @@ namespace Lannister.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Authorize user with facebook account
+        /// </summary>
+        /// <returns></returns>
         [HttpPost]
         [Route("facebook")]
         [SwaggerResponse(200, Type = typeof(object))]
@@ -35,6 +43,10 @@ namespace Lannister.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Authorize user with google account
+        /// </summary>
+        /// <returns></returns>
         [HttpPost]
         [Route("google")]
         [SwaggerResponse(200, Type = typeof(object))]

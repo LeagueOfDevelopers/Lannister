@@ -16,7 +16,12 @@ namespace Lannister
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddSwaggerGen(c => c.SwaggerDoc("Lannister", new Info { Title = "Lannister API", Version = "v1.0" }));
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("Lannister", new Info { Title = "Lannister API", Version = "v1.0" });
+                c.IncludeXmlComments(string.Format(@"{0}/Lannister.xml", AppDomain.CurrentDomain.BaseDirectory));
+                c.DescribeAllEnumsAsStrings();
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -24,6 +29,7 @@ namespace Lannister
         {
             app.UseSwagger()
                .UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/Lannister/swagger.json", "Lannister API"));
+            
 
             app.UseMvc();
         }

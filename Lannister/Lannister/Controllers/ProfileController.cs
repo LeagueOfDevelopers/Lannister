@@ -11,6 +11,16 @@ namespace Lannister.Controllers
     [Route("users")]
     public class ProfileController : Controller
     {
+        public ProfileController()
+        {
+
+        }
+
+        /// <summary>
+        /// Get user profile fields
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("{id}")]
         [SwaggerResponse(200, Type = typeof(object))]
@@ -21,6 +31,11 @@ namespace Lannister.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Change user profile fields
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPut]
         [Route("{id}")]
         [SwaggerResponse(200, Type = typeof(object))]

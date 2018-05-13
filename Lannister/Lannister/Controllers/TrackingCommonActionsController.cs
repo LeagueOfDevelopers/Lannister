@@ -8,7 +8,7 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 namespace Lannister.Controllers
 {
     /// <summary>
-    /// Contains common actions available to participants and creators
+    /// Contains common actions available to participants and creator
     /// </summary>
     [Produces("application/json")]
     [Route("trackings")]
@@ -19,6 +19,11 @@ namespace Lannister.Controllers
 
         }
 
+        /// <summary>
+        /// Get selected tracking fields
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("{id}")]
         [SwaggerResponse(200, Type = typeof(object))]
@@ -29,7 +34,10 @@ namespace Lannister.Controllers
             return Ok();
         }
 
-        //accepts optional query string parameters
+        /// <summary>
+        /// Get all user trackings or user trackings matching specified filters
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [SwaggerResponse(200, Type = typeof(object))]
         [SwaggerResponse(400, Type = typeof(object))]

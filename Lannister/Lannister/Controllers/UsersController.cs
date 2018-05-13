@@ -19,7 +19,11 @@ namespace Lannister.Controllers
 
         }
 
-        //accepts query string with filter attributes
+        /// <summary>
+        /// Get all registered users available to be invited and matching specified filters
+        /// </summary>
+        /// <param name="trackingId"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("search")]
         [SwaggerResponse(200, Type = typeof(object))]

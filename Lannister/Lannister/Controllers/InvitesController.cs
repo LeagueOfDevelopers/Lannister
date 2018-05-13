@@ -16,6 +16,11 @@ namespace Lannister.Controllers
 
         }
 
+        /// <summary>
+        /// Get all user invites
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
         [HttpGet]
         [SwaggerResponse(200, Type = typeof(object))]
         [SwaggerResponse(400, Type = typeof(object))]
@@ -25,6 +30,12 @@ namespace Lannister.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Accept selected by user invite
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("{id}/accept")]
         [SwaggerResponse(200, Type = typeof(object))]
@@ -35,6 +46,12 @@ namespace Lannister.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Deny selected by user invite
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("{id}/deny")]
         [SwaggerResponse(200, Type = typeof(object))]

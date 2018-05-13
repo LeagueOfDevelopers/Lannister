@@ -16,6 +16,11 @@ namespace Lannister.Controllers
 
         }
 
+        /// <summary>
+        /// Get all user notifications
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
         [HttpGet]
         [SwaggerResponse(200, Type = typeof(object))]
         [SwaggerResponse(400, Type = typeof(object))]
@@ -25,22 +30,32 @@ namespace Lannister.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Get user current notification settings
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("settings")]
         [SwaggerResponse(200, Type = typeof(object))]
         [SwaggerResponse(400, Type = typeof(object))]
         [SwaggerResponse(500, Type = typeof(object))]
-        public IActionResult AcceptNotification([FromRoute] int userId)
+        public IActionResult GetNotificationSettings([FromRoute] int userId)
         {
             return Ok();
         }
 
+        /// <summary>
+        /// Change user notification settings
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
         [HttpPut]
         [Route("settings")]
         [SwaggerResponse(200, Type = typeof(object))]
         [SwaggerResponse(400, Type = typeof(object))]
         [SwaggerResponse(500, Type = typeof(object))]
-        public IActionResult DenyNotification([FromRoute] int userId)
+        public IActionResult UpdateNotificationSettings([FromRoute] int userId)
         {
             return Ok();
         }

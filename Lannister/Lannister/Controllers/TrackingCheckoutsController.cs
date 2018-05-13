@@ -8,88 +8,92 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 namespace Lannister.Controllers
 {
     /// <summary>
-    /// Contains only the actions available to tracking creator
+    /// Contains all actions with checkouts
     /// </summary>
     [Produces("application/json")]
-    [Route("trackings")]
-    public class TrackingCreatorActionsController : Controller
+    [Route("trackings/{trackingId}/checkouts")]
+    public class TrackingCheckoutsController : Controller
     {
-        public TrackingCreatorActionsController()
+        public TrackingCheckoutsController()
         {
 
         }
 
         /// <summary>
-        /// Create new tracking
+        /// Create new checkout for the tracking
         /// </summary>
+        /// <param name="trackingId"></param>
         /// <returns></returns>
         [HttpPost]
         [SwaggerResponse(200, Type = typeof(object))]
         [SwaggerResponse(400, Type = typeof(object))]
         [SwaggerResponse(500, Type = typeof(object))]
-        public IActionResult CreateTracking()
+        public IActionResult CreateCheckout([FromRoute] int trackingId)
         {
             return Ok();
         }
 
         /// <summary>
-        /// Send tracking to archive
+        /// Get selected tracking checkout fields
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="trackingId"></param>
+        /// <param name="checkoutId"></param>
         /// <returns></returns>
-        [HttpPost]
-        [Route("{id}/disable")]
+        [HttpGet]
+        [Route("{checkoutId}")]
         [SwaggerResponse(200, Type = typeof(object))]
         [SwaggerResponse(400, Type = typeof(object))]
         [SwaggerResponse(500, Type = typeof(object))]
-        public IActionResult DisableTracking([FromRoute] int id)
+        public IActionResult GetCheckout([FromRoute] int trackingId, [FromRoute] int checkoutId)
         {
             return Ok();
         }
 
         /// <summary>
-        /// Change tracking fields
+        /// Change selected tracking checkout
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="trackingId"></param>
+        /// <param name="checkoutId"></param>
         /// <returns></returns>
         [HttpPut]
-        [Route("{id}")]
+        [Route("{checkoutId}")]
         [SwaggerResponse(200, Type = typeof(object))]
         [SwaggerResponse(400, Type = typeof(object))]
         [SwaggerResponse(500, Type = typeof(object))]
-        public IActionResult UpdateTracking([FromRoute] int id)
+        public IActionResult UpdateCheckout([FromRoute] int trackingId, [FromRoute] int checkoutId)
         {
             return Ok();
         }
 
         /// <summary>
-        /// Send invitation to found user
+        /// Delete selected tracking checkout
         /// </summary>
         /// <param name="trackingId"></param>
-        /// <param name="userId"></param>
+        /// <param name="checkoutId"></param>
         /// <returns></returns>
-        [HttpPost]
-        [Route("{trackingId}/participants/{userId}/invite")]
+        [HttpDelete]
+        [Route("{checkoutId}")]
         [SwaggerResponse(200, Type = typeof(object))]
         [SwaggerResponse(400, Type = typeof(object))]
         [SwaggerResponse(500, Type = typeof(object))]
-        public IActionResult InviteUserToParticipateInTracking([FromRoute] int trackingId, [FromRoute] int userId)
+        public IActionResult DeleteCheckout([FromRoute] int trackingId, [FromRoute] int checkoutId)
         {
             return Ok();
         }
 
         /// <summary>
-        /// Exclude specified user from tracking participants
+        /// Get all tracking checkouts
         /// </summary>
         /// <param name="trackingId"></param>
-        /// <param name="userId"></param>
+        /// <param name="limit"></param>
+        /// <param name="offset"></param>
         /// <returns></returns>
-        [HttpPost]
-        [Route("{trackingId}/participants/{userId}/exclude")]
+        [HttpGet]
         [SwaggerResponse(200, Type = typeof(object))]
         [SwaggerResponse(400, Type = typeof(object))]
         [SwaggerResponse(500, Type = typeof(object))]
-        public IActionResult ExcludeUserFromTrackingParticipants([FromRoute] int trackingId, [FromRoute] int userId)
+        public IActionResult GetCheckouts([FromRoute] int trackingId, 
+                   [FromQuery] int limit, [FromQuery] int offset)
         {
             return Ok();
         }
